@@ -94,6 +94,21 @@
                 </div>
                 </div>
 
+                 <!-- edad del usuario-->
+                 <div class="mb-3">
+                    <label for="edad" class="form-label"
+                      >Edad</label
+                    >
+                    <input type="number" class="form-control" id="edad" min="18" max ="35" />
+                    <div class="valid-feedback">
+                      El valor es correcto!!!!
+                  </div>
+                  <div class="invalid-feedback">
+                    Debe indicar su edad!!!
+                  </div>
+                  </div>
+  
+                  <!-- genero del usuario-->
                 <div class="mb-3">
                   <select class="form-select" required aria-label="genero">
                     <option value="">Seleccione Genero</option>
@@ -101,8 +116,12 @@
                     <option value="2">Masculino</option>
                     <option value="3">Omitir</option>
                   </select>
-                  <div class="invalid-feedback">Example invalid select feedback</div>
+                  <div class="valid-feedback">El valor es correcto!!!!</div>
+                  <div class="invalid-feedback">Debe seleccionar genero!!!</div>
+
                 </div>
+
+                
 
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
@@ -153,16 +172,20 @@
     
     var nombre_usuario = document.getElementById("nombre");
     var password = document.getElementById("password");
-    var apellidoPaterno= document.getElementById("apellidoPaterno")
-    var apellidomaterno = document.getElementById("apellidomaterno")
-    var rut_usuario =document.getElementById("rut")
+    var apellidoPaterno= document.getElementById("apellidoPaterno");
+    var apellidomaterno = document.getElementById("apellidomaterno");
+    var rut_usuario =document.getElementById("rut");
+    var edad_usuario = document.getElementById("edad");
+    var genero_usuario = document.querySelector(".form-select");
 
     password.classList.remove("is-invalid","is-valid");
     nombre_usuario.classList.remove("is-invalid","is-valid");
     apellidoPaterno.classList.remove("is-invalid","is-valid");
     apellidomaterno.classList.remove("is-invalid","is-valid");
-    rut.classList.remove("is-invalid","is-valid");
-
+    rut_usuario.classList.remove("is-invalid","is-valid");
+    edad_usuario.classList.remove("is-invalid","is-valid");
+    genero_usuario.classList.remove("is-invalid","is-valid");
+   
     /*validar rut */
     if(rut.value.length <9 || rut.value.length >10)
     {
@@ -196,7 +219,26 @@
     else{
       apellidomaterno.classList.add("is-valid");
     }
-    /*validar seleccion de genero*/
+     /*validar edad */
+     if(edad_usuario.value =="")
+      {
+        edad_usuario.classList.add("is-invalid");
+      
+      }
+      else{
+        edad_usuario.classList.add("is-valid");
+    }
+
+    /*validar genero */
+    if(genero_usuario.value =="")
+      {
+        genero_usuario.classList.add("is-invalid");
+      
+      }
+      else{
+        genero_usuario.classList.add("is-valid");
+    }
+    
     
 
 
@@ -210,7 +252,7 @@
       
       }
       else{
-      nombre_usuario.classList.add("is-valid");
+        password.classList.add("is-valid");
     }
   }
 
